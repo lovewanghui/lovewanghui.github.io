@@ -26,6 +26,11 @@
       </tags>
   </entry>
   <entry>
+    <title>My New Post</title>
+    <url>/2021/05/19/My-New-Post/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/05/13/hello-world/</url>
     <content><![CDATA[<h1 id="Hello-This-is-Test"><a href="#Hello-This-is-Test" class="headerlink" title="Hello This is Test"></a>Hello This is Test</h1><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-19T05:44:59.332Z</updated>
+  <updated>2021-05-19T07:17:05.864Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IamDuke</title>
+    <link href="http://example.com/2021/05/19/IamDuke/"/>
+    <id>http://example.com/2021/05/19/IamDuke/</id>
+    <published>2021-05-19T07:16:38.000Z</published>
+    <updated>2021-05-19T07:17:05.864Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Duke"><a href="#Duke" class="headerlink" title="Duke"></a>Duke</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;Duke&quot;&gt;&lt;a href=&quot;#Duke&quot; class=&quot;headerlink&quot; title=&quot;Duke&quot;&gt;&lt;/a&gt;Duke&lt;/h4&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MEDuke</title>
+    <link href="http://example.com/2021/05/19/MEDuke/"/>
+    <id>http://example.com/2021/05/19/MEDuke/</id>
+    <published>2021-05-19T07:09:33.000Z</published>
+    <updated>2021-05-19T07:09:33.489Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>My second post</title>
@@ -36,6 +69,26 @@
     <published>2021-05-19T03:08:02.000Z</published>
     <updated>2021-05-19T03:08:02.931Z</updated>
     
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>test12345</title>
+    <link href="http://example.com/2021/05/19/test_1324/"/>
+    <id>http://example.com/2021/05/19/test_1324/</id>
+    <published>2021-05-19T03:01:14.000Z</published>
+    <updated>2021-05-19T12:54:35.744Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="This-is-a-Test-File"><a href="#This-is-a-Test-File" class="headerlink" title="This is a Test File"></a>This is a Test File</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;This-is-a-Test-File&quot;&gt;&lt;a href=&quot;#This-is-a-Test-File&quot; class=&quot;headerlink&quot; title=&quot;This is a Test File&quot;&gt;&lt;/a&gt;This is a Test File&lt;/h3&gt;</summary>
+      
     
     
     
@@ -67,7 +120,7 @@
     <link href="http://example.com/2021/05/19/Felix/"/>
     <id>http://example.com/2021/05/19/Felix/</id>
     <published>2021-05-19T00:42:25.000Z</published>
-    <updated>2021-05-19T00:52:29.954Z</updated>
+    <updated>2021-05-19T07:30:43.438Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start-Hello"><a href="#Quick-Start-Hello" class="headerlink" title="Quick Start Hello"></a>Quick Start Hello</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -85,6 +138,8 @@
     <category term="PS3" scheme="http://example.com/tags/PS3/"/>
     
     <category term="Games" scheme="http://example.com/tags/Games/"/>
+    
+    <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-19T07:17:05.864Z</updated>
+  <updated>2021-05-20T01:22:27.720Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,162 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>IamDuke</title>
-    <link href="http://example.com/2021/05/19/IamDuke/"/>
-    <id>http://example.com/2021/05/19/IamDuke/</id>
-    <published>2021-05-19T07:16:38.000Z</published>
-    <updated>2021-05-19T07:17:05.864Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="Duke"><a href="#Duke" class="headerlink" title="Duke"></a>Duke</h4>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h4 id=&quot;Duke&quot;&gt;&lt;a href=&quot;#Duke&quot; class=&quot;headerlink&quot; title=&quot;Duke&quot;&gt;&lt;/a&gt;Duke&lt;/h4&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MEDuke</title>
-    <link href="http://example.com/2021/05/19/MEDuke/"/>
-    <id>http://example.com/2021/05/19/MEDuke/</id>
-    <published>2021-05-19T07:09:33.000Z</published>
-    <updated>2021-05-19T07:09:33.489Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>My second post</title>
-    <link href="http://example.com/2021/05/19/My-second-post/"/>
-    <id>http://example.com/2021/05/19/My-second-post/</id>
-    <published>2021-05-19T05:44:59.000Z</published>
-    <updated>2021-05-19T05:44:59.332Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>My New Post</title>
-    <link href="http://example.com/2021/05/19/My-New-Post/"/>
-    <id>http://example.com/2021/05/19/My-New-Post/</id>
-    <published>2021-05-19T03:08:02.000Z</published>
-    <updated>2021-05-19T03:08:02.931Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://example.com/2021/05/19/test/"/>
-    <id>http://example.com/2021/05/19/test/</id>
-    <published>2021-05-19T03:01:14.000Z</published>
-    <updated>2021-05-19T03:01:38.666Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="This-is-a-Test-File"><a href="#This-is-a-Test-File" class="headerlink" title="This is a Test File"></a>This is a Test File</h3>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;This-is-a-Test-File&quot;&gt;&lt;a href=&quot;#This-is-a-Test-File&quot; class=&quot;headerlink&quot; title=&quot;This is a Test File&quot;&gt;&lt;/a&gt;This is a Test File&lt;/h3&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>test12345</title>
-    <link href="http://example.com/2021/05/19/test_1324/"/>
-    <id>http://example.com/2021/05/19/test_1324/</id>
-    <published>2021-05-19T03:01:14.000Z</published>
-    <updated>2021-05-19T12:54:35.744Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="This-is-a-Test-File"><a href="#This-is-a-Test-File" class="headerlink" title="This is a Test File"></a>This is a Test File</h3>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;This-is-a-Test-File&quot;&gt;&lt;a href=&quot;#This-is-a-Test-File&quot; class=&quot;headerlink&quot; title=&quot;This is a Test File&quot;&gt;&lt;/a&gt;This is a Test File&lt;/h3&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Felix</title>
-    <link href="http://example.com/2021/05/19/Felix/"/>
-    <id>http://example.com/2021/05/19/Felix/</id>
+    <title>戒烟后的感受</title>
+    <link href="http://example.com/2021/05/19/%E6%88%92%E7%83%9F%E5%90%8E%E7%9A%84%E6%84%9F%E5%8F%97/"/>
+    <id>http://example.com/2021/05/19/%E6%88%92%E7%83%9F%E5%90%8E%E7%9A%84%E6%84%9F%E5%8F%97/</id>
     <published>2021-05-19T00:42:25.000Z</published>
-    <updated>2021-05-19T07:30:43.438Z</updated>
+    <updated>2021-05-20T01:22:27.720Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start-Hello"><a href="#Quick-Start-Hello" class="headerlink" title="Quick Start Hello"></a>Quick Start Hello</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="Diary" scheme="http://example.com/categories/Diary/"/>
-    
-    
-    <category term="PS3" scheme="http://example.com/tags/PS3/"/>
-    
-    <category term="Games" scheme="http://example.com/tags/Games/"/>
-    
-    <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>post title with whitespace</title>
-    <link href="http://example.com/2021/05/19/post-title-with-whitespace/"/>
-    <id>http://example.com/2021/05/19/post-title-with-whitespace/</id>
-    <published>2021-05-19T00:41:02.000Z</published>
-    <updated>2021-05-19T00:43:25.428Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/05/13/hello-world/"/>
-    <id>http://example.com/2021/05/13/hello-world/</id>
-    <published>2021-05-13T15:40:03.644Z</published>
-    <updated>2021-05-19T02:40:17.249Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Hello-This-is-Test"><a href="#Hello-This-is-Test" class="headerlink" title="Hello This is Test"></a>Hello This is Test</h1><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>戒烟已经差不多三个月了,现在看见别人抽烟不会有想抽的感觉. 但是大脑中依然记忆着曾经抽烟的那种快感. 如果尝试去品味这种快感,<strong>尤其是心情不愉悦的时候</strong>, 这时候你如果有向烟草寻求帮助的想法,并在大脑中回味那种抽烟之后带来的快感,基本上你很难不来上一根.</p><p>抽烟有害健康这是肯定的,但是我不认同抽烟无益,往大了说,任何东西,能存在必然有其一定的价值, 往小了说,抽烟能在你需要的时候暂且让你<em>爽</em>一下,给你短暂的快感.但是这种快感是透支生命的快感作为代价的.</p><blockquote><p>我为什么要戒烟?</p></blockquote><p>主要是我抽烟后呼吸道不是很顺畅,鼻子也不透气, 刚开始我还不能排除是抽烟造成的,后来,我就强忍着一周不抽烟,发现在这一周里,这种感觉逐渐减轻.最终我决定彻底戒掉,引用一个戒烟的前辈的话说:烟草是奴役人的东西,抽烟的人终将不自由,这有悖于我的追求.</p><blockquote><p>戒烟后的感觉?</p></blockquote><p>我只能说感觉很好,整体而言,比以前更快乐了吧.<br>对自己来说也是一个正反馈,更坚定自己一定要把烟戒掉.<br>但是抽烟也没什么太大不了的事情,只是我不适合抽烟吧,毕竟人生大几十年,戒这个,戒那个的,对我们普通人来说的确少了点意思.掌握好度, 找到适合自己的就好.</p><blockquote><p>戒烟最艰难的是什么?</p></blockquote><ul><li>饭局上,喝点酒,这时候,某个抽烟的人,给你一支烟,并要给你点上.</li><li>心情郁闷,工作/生活遇到阻碍,找不到突破口的时候,就像来一根烟,来舒畅一下.哪怕事实上, 这压根儿,从根本上解决不了任何实质问题.</li></ul><p>戒烟是自己想做的, 并且做到了, 接下来就要努力健身了. 争取一年时间把身体恢复到高中时候的那种状态. </p><hr><p>岁月静好,<br>仨瓜俩枣,<br>愿你一切如初.</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;Hello-This-is-Test&quot;&gt;&lt;a href=&quot;#Hello-This-is-Test&quot; class=&quot;headerlink&quot; title=&quot;Hello This is Test&quot;&gt;&lt;/a&gt;Hello This is Test&lt;/h1&gt;&lt;h2 id=&quot;Q</summary>
+    <summary type="html">&lt;p&gt;戒烟已经差不多三个月了,现在看见别人抽烟不会有想抽的感觉. 但是大脑中依然记忆着曾经抽烟的那种快感. 如果尝试去品味这种快感,&lt;strong&gt;尤其是心情不愉悦的时候&lt;/strong&gt;, 这时候你如果有向烟草寻求帮助的想法,并在大脑中回味那种抽烟之后带来的快感,基本上你很难不</summary>
       
     
     
     
+    <category term="生活" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="感受" scheme="http://example.com/tags/%E6%84%9F%E5%8F%97/"/>
+    
+    <category term="思考" scheme="http://example.com/tags/%E6%80%9D%E8%80%83/"/>
     
   </entry>
   

@@ -1,8 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>checkout, revert, restore, reset</title>
+    <url>/2021/05/26/checkout_revert_restore_reset/</url>
+    <content><![CDATA[<blockquote>
+<p>如果时光可以倒流,你会怎么样? 我相信每个人的人生选择都将会不同,至少你不会再做出现在来看是错误的选择.<br>在代码的世界里,版本管理工具给你反悔的机会.</p>
+</blockquote>
+<h5 id="Git中存在的几个区域"><a href="#Git中存在的几个区域" class="headerlink" title="Git中存在的几个区域:"></a>Git中存在的几个区域:</h5><p><img src="/images/git_revert_reset_restore.png" alt="this is an image"> </p>
+<p>不难git这样设计的目的,一个类似于平行宇宙的概念,他不是简单的备份,而且git追踪的是变化,而不是文件本身. git 中被tracking的文件, 就是在不断的从一个区移到另外一个区,同时文件的状态,被标识为不同的状态.</p>
+<blockquote>
+<p>比如:git add指令会把working里面的所有文件,“移动“到staged区,同时working里面所有untracked的文件转换为staged.</p>
+</blockquote>
+<p>我们可以逻辑上,把git里面的文件抽象为以下几种状态,其实这样划分严格意义上并不是很准确,只是方便理解.</p>
+<h5 id="Git中文件抽象为以下几种状态及其对应区域"><a href="#Git中文件抽象为以下几种状态及其对应区域" class="headerlink" title="Git中文件抽象为以下几种状态及其对应区域:"></a>Git中文件抽象为以下几种状态及其对应区域:</h5><ul>
+<li><code>untracked</code> :文件不受git “追踪”的状态,对应working区,你修改后的文件,如果没有add,commit,最开始就是在working区.不难理解working就是当前工作区.</li>
+<li><code>modified</code>  :git ”追踪“到已经修改,对应working区.</li>
+<li><code>staged</code>   :git已经暂存,对应staged区.</li>
+<li><code>commited</code> :git已经提交,对应repository区.</li>
+</ul>
+<p><strong>git命令每次执行完毕, 都会反馈给你一些信息,这些信息包含了,当前分支,文件状态,已经当前命令的回撤和进一步操作的info.你读懂了会发现其实命令行界面也可以用户体验很好.</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># untracking</span><br><span class="line">duke@MacBook-Pro GitStudy % git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">    modified:   hello.txt</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line">    &quot;hello\347\232\204\345\211\257\346\234\254.txt&quot;</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>所以我们知道了,git 命令其实就是让git中tracking的文件, 从一个区“到”另外一个区,同时伴随着文件的状态从一个状态切换到另外一个状态.<br>其实我们人生活中地点的变化也往往伴随着身份的变化,当我们从家里到公司,身份从儿子/丈夫到工程师.我们从淘宝买的东西,快递在仓库是未发货状态,接着伴随地点的变化,状态变为分拣,运输中,最后到你手里,你确认收货,那就是签收状态了.</p>
+</blockquote>
+<p>如果搞清楚了git中文件的几种状态,就可以看看git中几条让时光逆转的几条指令.</p>
+<h5 id="几条时光逆转的指令"><a href="#几条时光逆转的指令" class="headerlink" title="几条时光逆转的指令"></a>几条时光逆转的指令</h5><ol>
+<li><code>git checkout</code></li>
+<li><code>git restore</code></li>
+<li><code>git revert</code></li>
+<li><code>git reset</code></li>
+</ol>
+<p>文件在git中分为不同的状态,以上几条指令可以在不同的状态下切换,达到回退的目的.<br><strong>具体详细的使用请执行:git help</strong></p>
+<blockquote>
+<p><code>git checkout</code> 让staged区文件back到working区.覆盖当前working区,从而达到回退目的.git restore 也可以达到目的, 每次add命令执行完毕,都会给出反馈: (use “git restore <file>…” to discard changes in working directory).就是这个意思.</p>
+</blockquote>
+<blockquote>
+<p><code>git restore</code> 除了可以让你放弃当前working区的更改,还可以把文件从staged区back到working区.但是文件的改动此时依然存在.</p>
+</blockquote>
+<p><strong>使用restore命令,放弃working区更改&amp;把staged区文件back到working区</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">duke@MacBook-Pro GitStudy % git status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line">    modified:   hello.txt</span><br><span class="line"></span><br><span class="line">duke@MacBook-Pro GitStudy % git restore --staged hello.txt</span><br><span class="line">duke@MacBook-Pro GitStudy % git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">    modified:   hello.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br><span class="line">duke@MacBook-Pro GitStudy % git restore hello.txt</span><br><span class="line">duke@MacBook-Pro GitStudy % git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">duke@MacBook-Pro GitStudy % </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>git revert commit-id</code>, 针对repository区的commited 文件, 回退到上次committed,然后把当前回退的改动再次提交. 作为更改它是有记录,更安全.</p>
+<p>如果你当前working区, 有改动你想revert,必须要先commit才能revert.</p>
+</blockquote>
+<p><strong>revert 报错</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">duke@MacBook-Pro GitStudy % git revert 3fb4844</span><br><span class="line">error: Your local changes to the following files would be overwritten by merge:</span><br><span class="line">    hello.txt</span><br><span class="line">Please commit your changes or stash them before you merge.</span><br><span class="line">Aborting</span><br><span class="line">fatal: revert failed</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>git reset</code>,用来设置分支的头部指向,对应repository区里面有很多提交,使用git reset可以把当前提交重置到某次提交.<br>reset 有 –soft,–mixed,–hard可选.<br>当使用hard, 被回退的那些版本的修改会直接舍弃,commit-id所对应的提交直接会覆盖到working区, 此时不管working区里面的文件是什么状态,好像它们没有来过一样。其他的分别会回退到staged区和working区.</p>
+</blockquote>
+<p>总结:写的比较长.感觉还是有不够透彻的地方,凡事都要自己动手.</p>
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+      </categories>
+      <tags>
+        <tag>版本管理工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>十六进制字符串与十六进制整形之间的转换</title>
-    <url>/2021/05/19/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B4%E5%BD%A2%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
+    <url>/2021/05/18/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B4%E5%BD%A2%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<h5 id="在开始之前先谈谈标题"><a href="#在开始之前先谈谈标题" class="headerlink" title="在开始之前先谈谈标题."></a>在开始之前先谈谈标题.</h5><p>解释什么是十六进制字符串?<br>进制是计数方式,利用这方式，可以使用有限的符号来表示所有的数值。<br>我们知道,在强类型的计算机语言里,数字和字符串,是两种类型,但可不是风马牛不相及.后续我们慢慢道来,是怎么相及的.<br>也就是说十六进制字符串表示的是一个数,但是呢.这个数是用十六进制这种进制(计数方式)来表示的.</p>
 <p>如何把这个“字符串格式的数”convert 一下. 变成一个数字类型的数.<br>常见的把它变成我们常见的“十进制类型”的数,还有一种是把它转换成“十六进制类型的数”.<br>本质上这是一种类型转换&amp;保留原来的十六进制.</p>
 <h5 id="给整形变量赋值-十六进制-十进制-八进制-二进制"><a href="#给整形变量赋值-十六进制-十进制-八进制-二进制" class="headerlink" title="给整形变量赋值(十六进制,十进制,八进制,二进制):"></a>给整形变量赋值(十六进制,十进制,八进制,二进制):</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> bInt = <span class="number">0b101</span>;   <span class="comment">//二进制数字</span></span><br><span class="line"><span class="keyword">int</span> oInt = <span class="number">0456</span>;   <span class="comment">//八进制数字</span></span><br><span class="line"><span class="keyword">int</span> dInt = <span class="number">567890</span>; <span class="comment">//十进制数字</span></span><br><span class="line"><span class="keyword">int</span> hexInt = <span class="number">0X234FF</span>;<span class="comment">// 十六进制数字</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;八进制:bInt = %o,oInt = %o, dInt = %o,hexInt = %o\n&quot;</span>, bInt, oInt, dInt,hexInt);  <span class="comment">//以八进制形似输出</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十进制:bInt = %d,oInt = %d,dInt = %d,hexInt = %d\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十进制形式输出</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十六进制:bInt = %x,oInt = %x, dInt = %x,hexInt = %x\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十六进制形式输出（字母小写）</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十六进制:bInt = %X,oInt = %X,dInt = %X,hexInt = %X\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十六进制形式输出（字母大写）</span></span><br></pre></td></tr></table></figure>

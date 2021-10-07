@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux,硬件,shell</title>
-    <url>/2021/06/01/Linux%E7%A1%AC%E4%BB%B6shell/</url>
-    <content><![CDATA[<blockquote>
-<p>整个计算机系统是由硬件系统,操作系统,以及建立在操作系统之上的应用软件组成.各个层级之间互相搭配协调.<br>其中操作系统负责底层硬件资源的分配,管理,调度.如:CPU的调度,内存的管理,磁盘的读写这些都是操作系统负责的,但是最终干活的还是底层的硬件资源.<br>对于一般计算机用户来说,我们最终的目的也就是操控底层的硬件的资源来完成工作,如:你想从U盘复制一个文档到你的电脑磁盘上,通过操作系统,你可以轻易实现.<br>操作系统作为计算机系统的一个层次,它隐藏了硬件层的物理特性差异和复杂的处理细节,向上层提供方便,有效,安全的接口.通过使用操作系统提供的接口,就可以间接使用底层硬件资源.</p>
+    <title>十六进制字符串与十六进制整形之间的转换</title>
+    <url>/2021/05/18/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B4%E5%BD%A2%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<h5 id="在开始之前先谈谈标题"><a href="#在开始之前先谈谈标题" class="headerlink" title="在开始之前先谈谈标题."></a>在开始之前先谈谈标题.</h5><p>解释什么是十六进制字符串?<br>进制是计数方式,利用这方式，可以使用有限的符号来表示所有的数值。<br>我们知道,在强类型的计算机语言里,数字和字符串,是两种类型,但可不是风马牛不相及.后续我们慢慢道来,是怎么相及的.<br>也就是说十六进制字符串表示的是一个数,但是呢.这个数是用十六进制这种进制(计数方式)来表示的.</p>
+<p>如何把这个“字符串格式的数”convert 一下. 变成一个数字类型的数.<br>常见的把它变成我们常见的“十进制类型”的数,还有一种是把它转换成“十六进制类型的数”.<br>本质上这是一种类型转换&amp;保留原来的十六进制.</p>
+<h5 id="给整形变量赋值-十六进制-十进制-八进制-二进制"><a href="#给整形变量赋值-十六进制-十进制-八进制-二进制" class="headerlink" title="给整形变量赋值(十六进制,十进制,八进制,二进制):"></a>给整形变量赋值(十六进制,十进制,八进制,二进制):</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> bInt = <span class="number">0b101</span>;   <span class="comment">//二进制数字</span></span><br><span class="line"><span class="keyword">int</span> oInt = <span class="number">0456</span>;   <span class="comment">//八进制数字</span></span><br><span class="line"><span class="keyword">int</span> dInt = <span class="number">567890</span>; <span class="comment">//十进制数字</span></span><br><span class="line"><span class="keyword">int</span> hexInt = <span class="number">0X234FF</span>;<span class="comment">// 十六进制数字</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;八进制:bInt = %o,oInt = %o, dInt = %o,hexInt = %o\n&quot;</span>, bInt, oInt, dInt,hexInt);  <span class="comment">//以八进制形似输出</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十进制:bInt = %d,oInt = %d,dInt = %d,hexInt = %d\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十进制形式输出</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十六进制:bInt = %x,oInt = %x, dInt = %x,hexInt = %x\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十六进制形式输出（字母小写）</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十六进制:bInt = %X,oInt = %X,dInt = %X,hexInt = %X\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十六进制形式输出（字母大写）</span></span><br></pre></td></tr></table></figure>
+
+<p>OK! 下面我们分别的针对这两种情况,来讨论.</p>
+<h6 id="1-十六进制字符串-转换为-十进制数字"><a href="#1-十六进制字符串-转换为-十进制数字" class="headerlink" title="1.十六进制字符串 转换为 十进制数字"></a>1.十六进制字符串 转换为 十进制数字</h6><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> outVal;</span><br><span class="line"><span class="built_in">NSScanner</span>* scanner = [<span class="built_in">NSScanner</span> scannerWithString:<span class="string">@&quot;0x01FFFFAB&quot;</span>];</span><br><span class="line">[scanner scanHexInt:&amp;outVal];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;outVal formated with decimal is  %d&quot;</span>,outVal);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;outVal formated with hex is  %x&quot;</span>,outVal);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>到达罗马的途径有很多种,这只是一种简单有效的方法.</p>
 </blockquote>
-<h5 id="操作系统为用户提供的接口-可分为两类"><a href="#操作系统为用户提供的接口-可分为两类" class="headerlink" title="操作系统为用户提供的接口,可分为两类."></a>操作系统为用户提供的接口,可分为两类.</h5><h6 id="1-命令接口"><a href="#1-命令接口" class="headerlink" title="1. 命令接口"></a>1. 命令接口</h6><p>对于早起的操作系统,字符命令是基本的命令接口.操作时按照一定的格式输入命令名称及所需要的相关参数.</p>
-<h6 id="2-程序接口"><a href="#2-程序接口" class="headerlink" title="2. 程序接口"></a>2. 程序接口</h6><p>程序接口是一种供程序员在程序中使用的接口,程序接口通过<strong>系统调用</strong>来实现.比如:macOS系统下编写蓝牙相关的应用软件, macOS系统为你提供的一些“子程序”,这些子程序一般由系统设计人员编写,你通过使用这些子程序,由子程序来通过操作系统来操作蓝牙相关的动作.从应用开发人员到操作系统内核中间经历了好多层, 但是对于一般应用程序开发人员来说, 他们一般只关心上面的一层,偶尔需要两层,很少接触操作系统级别的调用.</p>
-<p><img src="/images/Core_Bluetooth.png" alt="this is an image"></p>
+<h6 id="2-十六进制字符串-转换为-十六进制数字"><a href="#2-十六进制字符串-转换为-十六进制数字" class="headerlink" title="2.十六进制字符串 转换为 十六进制数字"></a>2.十六进制字符串 转换为 十六进制数字</h6><p>先不要思考为什么要么做. 但是这么做是有意义的,计算机语言里十六进制的字符串,虽然它表示的是一个数字,但是它的类型还是字符串.我们要把字符串转换成数字类型.</p>
+<p>懵了?<br>别懵,这个不难理解.比如说:int a = 1000,变量a的值是1000,变量a的类型是整形.再看另一个:String a = “1000”,这里a变量的值也是“1000”,a变量的类型是String类型.可能你看起来,区别不大,事实上,对计算机语言来说,区别大了.<br>到底有什么区别呢?<br>有空再聊这一块.记着这两种值都是1000,但是类型不一样,对计算机来说,他们区别大了.所以我们要转换.</p>
+<p><strong>既然对计算机来说,区别大了,那么各程序设计语言肯定回提供一些方法或者函数来供我们调用来去完成这个convert</strong><br>下面是常见C的convert方法.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> value;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">sscanf</span>([str UTF8String], <span class="string">&quot;%x&quot;</span>, &amp;value) == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is %x&quot;</span>,value);</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is d %d&quot;</span>,value);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Fail value is fail %x&quot;</span>,value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>既然objective c和c可以混编调用,我们也可以这样来实现转换十六进制字符串到十进制数.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> value;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">sscanf</span>([str UTF8String], <span class="string">&quot;%d&quot;</span>, &amp;value) == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is %x&quot;</span>,value);</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is d %d&quot;</span>,value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Fail value is fail %x&quot;</span>,value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>比较这一下, 你会发现我们都是使用&amp;value,去接收转换后的值.这里不管是什么进制,最终他转换完毕他的本质都是一个数.一个int.</p>
+</blockquote>
+<p>OK! 到这里, 我们已经把我们开始提的两个问题,解决了.<br><strong>那如果要把十六进制字符串转换为八进制的数呢?</strong><br>如果你有点sense,肯定会查阅sscanf和NSScanner的一些详细用法.这两个函数一个是objective c的foundation 函数一个是c语言的库函数.Have a good time哦.</p>
+<p>这里仅仅是提供一种到达罗马的方法,供参考.</p>
 <hr>
-<h5 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h5><p>对于一般用来说,我们只能通过命令来和操作系统沟通,让硬件层资源帮我们做事.<br><strong>shell本身也是“一个程序“</strong>,它允许你输入文本命令，然后解释命令，并在内核中执行。也可以将多个shell命令放入文件中作为程序执行,这些文件被称作shell脚本。此时,,shell也是一门解释型语言,可编程.我们通过shell输入命令与内核沟通,好让内核控制硬件来工作.</p>
-<ul>
-<li><p>在图形化桌面出现之前，Linux早期,你只能用shell来工作,那时候的系统管理员,程序员,和系统用户都端坐在Linux控制台前,输入shell命令,查看文本输出. 与Unix系统进行交互的唯一方式就是借助由shell所提供的文本命令 行界面(command line interface，CLI)。CLI只能接受文本输入，也只能显示出文本和基本的图形 输出。现在你仍然可以通过控制台终端或者图形化终端,借助shell使用命令行和Linux进行交互.</p>
-</li>
-<li><p>与Unix系统进行交互的唯一方式就是借助由shell所提供的文本命令行界面(command line interface，CLI)。CLI只能接受文本输入,也只能显示出文本和基本的图形输出。</p>
-</li>
-<li><p>现在还真不容易找到进入命令行界面的方法.(针对现在GUI的OS时代,需要用专用的图形化终端,比如MacOS就要用专门提供terminal).对于Linux系统你还可以通过控制台终端进入CLI.</p>
-</li>
-<li><p>shell翻译成壳的意思，它是包裹在linux内核外层的、一个可通过一系列的linux命令对操作系统发出相关指令的人机界面。 shell可以通过其条件语句和循环语句等，把一系列linux命令结合在一起，形成一个相当于面向过程的程序，即shell script，来实现一些较为复杂的功能。</p>
-</li>
-<li><p>Shell 本身支持的命令并不多，功能也有限，但是 Shell 可以调用其他的程序，每个程序就是一个命令，这使得 Shell 命令的数量可以无限扩展，其结果就是 Shell 的功能非常强大，完全能够胜任 Linux 的日常管理工作，如文本或字符串检索、文件的查找或创建、大规模软件的自动部署、更改系统设置、监控服务器性能、发送报警邮件、抓取网页内容、压缩文件等。</p>
-</li>
-</ul>
-<p>知道什么是shell,及其与操作系统和硬件系统的关系,就可以详细学习shell的使用了.</p>
-<p><strong>macOS默认的shell是zsh,看看描述吧.</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">duke@MacBook-Pro ~ % man zsh</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Zsh  is  a UNIX command interpreter (shell) usable as an interactive login shell and as a shell</span><br><span class="line">       script command processor.  Of the standard shells, zsh most closely resembles ksh but  includes</span><br><span class="line">       many enhancements.  It does not provide compatibility with POSIX or other shells in its default</span><br><span class="line">       operating mode:  see the section Compatibility below.</span><br><span class="line"></span><br><span class="line">       Zsh has command line editing, builtin spelling  correction,  programmable  command  completion,</span><br><span class="line">       shell functions (with autoloading), a history mechanism, and a host of other features.</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>一口气,迷迷糊糊的描述了这么多概念.计算机科学里面的概念的确非常多,但是只要理清楚,每一个概念在系统中的层次位置,先从整体的角度去理解,某一个模块的功能和作用, 然后再去详细了机,具体的使用方法和实现.抽象层在计算机科学里面非常多见,搞清楚层级与层级的关系和相互作用,比急着去了解它的使用方法更迫切吧.不知道,是否讲清楚shell的位置和作用.</strong></p>
+<p>这里主要想表达的是,其实方法不重要,很多时候,搞不清问题的本质,然后就去寻求解决问题的办法到最后,一切都是瞎搞.<br>当我们深刻理解了问题的本质,像这种问题,往往有很多转换的方法.<br>不管什么十六进制,八进制,十进制,也不管什么整形,字符串, 只要理清了,方法就有了.</p>
+<p>这就是为什么往往大厂喜欢找名校CS专业的人作为实习生培养,对他们来说风险小,成本低.</p>
 ]]></content>
       <categories>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>shell</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -98,38 +96,40 @@
       </tags>
   </entry>
   <entry>
-    <title>十六进制字符串与十六进制整形之间的转换</title>
-    <url>/2021/05/18/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B4%E5%BD%A2%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
-    <content><![CDATA[<h5 id="在开始之前先谈谈标题"><a href="#在开始之前先谈谈标题" class="headerlink" title="在开始之前先谈谈标题."></a>在开始之前先谈谈标题.</h5><p>解释什么是十六进制字符串?<br>进制是计数方式,利用这方式，可以使用有限的符号来表示所有的数值。<br>我们知道,在强类型的计算机语言里,数字和字符串,是两种类型,但可不是风马牛不相及.后续我们慢慢道来,是怎么相及的.<br>也就是说十六进制字符串表示的是一个数,但是呢.这个数是用十六进制这种进制(计数方式)来表示的.</p>
-<p>如何把这个“字符串格式的数”convert 一下. 变成一个数字类型的数.<br>常见的把它变成我们常见的“十进制类型”的数,还有一种是把它转换成“十六进制类型的数”.<br>本质上这是一种类型转换&amp;保留原来的十六进制.</p>
-<h5 id="给整形变量赋值-十六进制-十进制-八进制-二进制"><a href="#给整形变量赋值-十六进制-十进制-八进制-二进制" class="headerlink" title="给整形变量赋值(十六进制,十进制,八进制,二进制):"></a>给整形变量赋值(十六进制,十进制,八进制,二进制):</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> bInt = <span class="number">0b101</span>;   <span class="comment">//二进制数字</span></span><br><span class="line"><span class="keyword">int</span> oInt = <span class="number">0456</span>;   <span class="comment">//八进制数字</span></span><br><span class="line"><span class="keyword">int</span> dInt = <span class="number">567890</span>; <span class="comment">//十进制数字</span></span><br><span class="line"><span class="keyword">int</span> hexInt = <span class="number">0X234FF</span>;<span class="comment">// 十六进制数字</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;八进制:bInt = %o,oInt = %o, dInt = %o,hexInt = %o\n&quot;</span>, bInt, oInt, dInt,hexInt);  <span class="comment">//以八进制形似输出</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十进制:bInt = %d,oInt = %d,dInt = %d,hexInt = %d\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十进制形式输出</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十六进制:bInt = %x,oInt = %x, dInt = %x,hexInt = %x\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十六进制形式输出（字母小写）</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;十六进制:bInt = %X,oInt = %X,dInt = %X,hexInt = %X\n&quot;</span>,bInt,oInt,dInt,hexInt);  <span class="comment">//以十六进制形式输出（字母大写）</span></span><br></pre></td></tr></table></figure>
-
-<p>OK! 下面我们分别的针对这两种情况,来讨论.</p>
-<h6 id="1-十六进制字符串-转换为-十进制数字"><a href="#1-十六进制字符串-转换为-十进制数字" class="headerlink" title="1.十六进制字符串 转换为 十进制数字"></a>1.十六进制字符串 转换为 十进制数字</h6><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> outVal;</span><br><span class="line"><span class="built_in">NSScanner</span>* scanner = [<span class="built_in">NSScanner</span> scannerWithString:<span class="string">@&quot;0x01FFFFAB&quot;</span>];</span><br><span class="line">[scanner scanHexInt:&amp;outVal];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;outVal formated with decimal is  %d&quot;</span>,outVal);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;outVal formated with hex is  %x&quot;</span>,outVal);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>到达罗马的途径有很多种,这只是一种简单有效的方法.</p>
+    <title>Linux,硬件,shell</title>
+    <url>/2021/06/01/Linux%E7%A1%AC%E4%BB%B6shell/</url>
+    <content><![CDATA[<blockquote>
+<p>整个计算机系统是由硬件系统,操作系统,以及建立在操作系统之上的应用软件组成.各个层级之间互相搭配协调.<br>其中操作系统负责底层硬件资源的分配,管理,调度.如:CPU的调度,内存的管理,磁盘的读写这些都是操作系统负责的,但是最终干活的还是底层的硬件资源.<br>对于一般计算机用户来说,我们最终的目的也就是操控底层的硬件的资源来完成工作,如:你想从U盘复制一个文档到你的电脑磁盘上,通过操作系统,你可以轻易实现.<br>操作系统作为计算机系统的一个层次,它隐藏了硬件层的物理特性差异和复杂的处理细节,向上层提供方便,有效,安全的接口.通过使用操作系统提供的接口,就可以间接使用底层硬件资源.</p>
 </blockquote>
-<h6 id="2-十六进制字符串-转换为-十六进制数字"><a href="#2-十六进制字符串-转换为-十六进制数字" class="headerlink" title="2.十六进制字符串 转换为 十六进制数字"></a>2.十六进制字符串 转换为 十六进制数字</h6><p>先不要思考为什么要么做. 但是这么做是有意义的,计算机语言里十六进制的字符串,虽然它表示的是一个数字,但是它的类型还是字符串.我们要把字符串转换成数字类型.</p>
-<p>懵了?<br>别懵,这个不难理解.比如说:int a = 1000,变量a的值是1000,变量a的类型是整形.再看另一个:String a = “1000”,这里a变量的值也是“1000”,a变量的类型是String类型.可能你看起来,区别不大,事实上,对计算机语言来说,区别大了.<br>到底有什么区别呢?<br>有空再聊这一块.记着这两种值都是1000,但是类型不一样,对计算机来说,他们区别大了.所以我们要转换.</p>
-<p><strong>既然对计算机来说,区别大了,那么各程序设计语言肯定回提供一些方法或者函数来供我们调用来去完成这个convert</strong><br>下面是常见C的convert方法.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> value;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">sscanf</span>([str UTF8String], <span class="string">&quot;%x&quot;</span>, &amp;value) == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is %x&quot;</span>,value);</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is d %d&quot;</span>,value);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Fail value is fail %x&quot;</span>,value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>既然objective c和c可以混编调用,我们也可以这样来实现转换十六进制字符串到十进制数.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> value;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">sscanf</span>([str UTF8String], <span class="string">&quot;%d&quot;</span>, &amp;value) == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is %x&quot;</span>,value);</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Success value is d %d&quot;</span>,value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">&quot;Convert Fail value is fail %x&quot;</span>,value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>比较这一下, 你会发现我们都是使用&amp;value,去接收转换后的值.这里不管是什么进制,最终他转换完毕他的本质都是一个数.一个int.</p>
-</blockquote>
-<p>OK! 到这里, 我们已经把我们开始提的两个问题,解决了.<br><strong>那如果要把十六进制字符串转换为八进制的数呢?</strong><br>如果你有点sense,肯定会查阅sscanf和NSScanner的一些详细用法.这两个函数一个是objective c的foundation 函数一个是c语言的库函数.Have a good time哦.</p>
-<p>这里仅仅是提供一种到达罗马的方法,供参考.</p>
+<h5 id="操作系统为用户提供的接口-可分为两类"><a href="#操作系统为用户提供的接口-可分为两类" class="headerlink" title="操作系统为用户提供的接口,可分为两类."></a>操作系统为用户提供的接口,可分为两类.</h5><h6 id="1-命令接口"><a href="#1-命令接口" class="headerlink" title="1. 命令接口"></a>1. 命令接口</h6><p>对于早起的操作系统,字符命令是基本的命令接口.操作时按照一定的格式输入命令名称及所需要的相关参数.</p>
+<h6 id="2-程序接口"><a href="#2-程序接口" class="headerlink" title="2. 程序接口"></a>2. 程序接口</h6><p>程序接口是一种供程序员在程序中使用的接口,程序接口通过<strong>系统调用</strong>来实现.比如:macOS系统下编写蓝牙相关的应用软件, macOS系统为你提供的一些“子程序”,这些子程序一般由系统设计人员编写,你通过使用这些子程序,由子程序来通过操作系统来操作蓝牙相关的动作.从应用开发人员到操作系统内核中间经历了好多层, 但是对于一般应用程序开发人员来说, 他们一般只关心上面的一层,偶尔需要两层,很少接触操作系统级别的调用.</p>
+<p><img src="/images/Core_Bluetooth.png" alt="this is an image"></p>
 <hr>
-<p>这里主要想表达的是,其实方法不重要,很多时候,搞不清问题的本质,然后就去寻求解决问题的办法到最后,一切都是瞎搞.<br>当我们深刻理解了问题的本质,像这种问题,往往有很多转换的方法.<br>不管什么十六进制,八进制,十进制,也不管什么整形,字符串, 只要理清了,方法就有了.</p>
-<p>这就是为什么往往大厂喜欢找名校CS专业的人作为实习生培养,对他们来说风险小,成本低.</p>
+<h5 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h5><p>对于一般用来说,我们只能通过命令来和操作系统沟通,让硬件层资源帮我们做事.<br><strong>shell本身也是“一个程序“</strong>,它允许你输入文本命令，然后解释命令，并在内核中执行。也可以将多个shell命令放入文件中作为程序执行,这些文件被称作shell脚本。此时,,shell也是一门解释型语言,可编程.我们通过shell输入命令与内核沟通,好让内核控制硬件来工作.</p>
+<ul>
+<li><p>在图形化桌面出现之前，Linux早期,你只能用shell来工作,那时候的系统管理员,程序员,和系统用户都端坐在Linux控制台前,输入shell命令,查看文本输出. 与Unix系统进行交互的唯一方式就是借助由shell所提供的文本命令 行界面(command line interface，CLI)。CLI只能接受文本输入，也只能显示出文本和基本的图形 输出。现在你仍然可以通过控制台终端或者图形化终端,借助shell使用命令行和Linux进行交互.</p>
+</li>
+<li><p>与Unix系统进行交互的唯一方式就是借助由shell所提供的文本命令行界面(command line interface，CLI)。CLI只能接受文本输入,也只能显示出文本和基本的图形输出。</p>
+</li>
+<li><p>现在还真不容易找到进入命令行界面的方法.(针对现在GUI的OS时代,需要用专用的图形化终端,比如MacOS就要用专门提供terminal).对于Linux系统你还可以通过控制台终端进入CLI.</p>
+</li>
+<li><p>shell翻译成壳的意思，它是包裹在linux内核外层的、一个可通过一系列的linux命令对操作系统发出相关指令的人机界面。 shell可以通过其条件语句和循环语句等，把一系列linux命令结合在一起，形成一个相当于面向过程的程序，即shell script，来实现一些较为复杂的功能。</p>
+</li>
+<li><p>Shell 本身支持的命令并不多，功能也有限，但是 Shell 可以调用其他的程序，每个程序就是一个命令，这使得 Shell 命令的数量可以无限扩展，其结果就是 Shell 的功能非常强大，完全能够胜任 Linux 的日常管理工作，如文本或字符串检索、文件的查找或创建、大规模软件的自动部署、更改系统设置、监控服务器性能、发送报警邮件、抓取网页内容、压缩文件等。</p>
+</li>
+</ul>
+<p>知道什么是shell,及其与操作系统和硬件系统的关系,就可以详细学习shell的使用了.</p>
+<p><strong>macOS默认的shell是zsh,看看描述吧.</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">duke@MacBook-Pro ~ % man zsh</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Zsh  is  a UNIX command interpreter (shell) usable as an interactive login shell and as a shell</span><br><span class="line">       script command processor.  Of the standard shells, zsh most closely resembles ksh but  includes</span><br><span class="line">       many enhancements.  It does not provide compatibility with POSIX or other shells in its default</span><br><span class="line">       operating mode:  see the section Compatibility below.</span><br><span class="line"></span><br><span class="line">       Zsh has command line editing, builtin spelling  correction,  programmable  command  completion,</span><br><span class="line">       shell functions (with autoloading), a history mechanism, and a host of other features.</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>一口气,迷迷糊糊的描述了这么多概念.计算机科学里面的概念的确非常多,但是只要理清楚,每一个概念在系统中的层次位置,先从整体的角度去理解,某一个模块的功能和作用, 然后再去详细了机,具体的使用方法和实现.抽象层在计算机科学里面非常多见,搞清楚层级与层级的关系和相互作用,比急着去了解它的使用方法更迫切吧.不知道,是否讲清楚shell的位置和作用.</strong></p>
 ]]></content>
       <categories>
         <category>计算机基础</category>
       </categories>
       <tags>
-        <tag>思考</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
